@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from './Button'
 import Input from './Input'
 
 const LoginForm = (props) => {
@@ -13,8 +14,11 @@ const LoginForm = (props) => {
     <div>
       <form onSubmit={handleSubmit}>
         Username : <Input type="text" value={username} onchange={setUsername} />
+        {username.length === 0 && <span style={{ color: 'red', marginLeft: '1em' }}>Require Username</span> }<br />
         Password : <Input type="text" value={password} onchange={setPassword} />
-        <button type="submit"> Login </button>
+        {password.length === 0 && <span style={{ color: 'red', marginLeft: '1em' }}>Require Password</span> }<br />
+
+        <Button onClick={handleSubmit}>Login</Button>
       </form>
     </div>
   )
